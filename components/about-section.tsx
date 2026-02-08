@@ -298,7 +298,7 @@ export default function AboutSection() {
       {/* Floating Contact Buttons */}
       <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-3">
         <a
-          href="tel:+917066768334"
+          href="tel:+917304702424"
           className="p-4 rounded-full shadow-2xl transition-all hover:scale-110"
           style={{ backgroundColor: 'var(--primary)' }}
           aria-label="Call us"
@@ -309,7 +309,7 @@ export default function AboutSection() {
           />
         </a>
         <a
-          href="https://wa.me/917066768334"
+          href="https://wa.me/917304702424"
           target="_blank"
           rel="noopener noreferrer"
           className="p-4 rounded-full shadow-2xl transition-all hover:scale-110"

@@ -124,7 +124,7 @@ export function Footer() {
                   size={14} 
                   style={{ color: 'var(--primary-foreground)', opacity: 1 }}
                 />
-                +91 7066768334
+                +91 7304702424
               </li>
                <li 
                 className="flex items-center gap-2 text-lg"

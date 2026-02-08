@@ -6,7 +6,7 @@ export default function FloatingCTA() {
     <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-3">
       {/* Floating Contact Buttons */}
         <a 
-          href="tel:+917066768334" 
+          href="tel:+917304702424" 
           className="p-4 rounded-full shadow-xl transition-all hover:scale-110"
           style={{ background: 'var(--secondary)' }}
         >
