@@ -76,7 +76,7 @@ export default function VirtualTourHero() {
                 fontFamily: 'var(--font-heading)'
               }}
             >
-              <a href='faq_sec' className="relative z-10">Book a Virtual Tour</a>
+              <a href='#faq_sec' className="relative z-10">Book a Virtual Tour</a>
               <div 
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{

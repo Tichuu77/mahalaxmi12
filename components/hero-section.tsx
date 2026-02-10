@@ -236,7 +236,7 @@ export default function HeroSection() {
                   className="font-bold mb-1 sm:mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
-                    color: '#C9862b',
+                    color: '#ffffff',
                     fontFamily: 'var(--font-heading)'
                   }}
                 >
@@ -258,11 +258,11 @@ export default function HeroSection() {
                   className="font-bold mb-1 sm:mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
-                    color: '#C9862b',
+                    color: '#ffffff',
                     fontFamily: 'var(--font-heading)'
                   }}
                 >
-                  17000+
+                  17111+
                 </div>
                 <div 
                   className="text-white/80"

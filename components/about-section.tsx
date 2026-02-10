@@ -62,15 +62,7 @@ export default function AboutSection() {
             {/* Left Content */}
             <div className="space-y-6 scroll-fade">
               <div>
-                <p
-                  className="font-semibold text-sm mb-2"
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    color: 'var(--secondary)'
-                  }}
-                >
-                  MOUZA SUMTHANA
-                </p>
+           
                 <h2
                   className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
                   style={{

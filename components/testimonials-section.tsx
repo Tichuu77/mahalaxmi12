@@ -132,6 +132,7 @@ export default function TestimonialsSection() {
 
         {/* View More Button */}
         <div className="text-center">
+          <a href="#faq_sec"> 
           <button 
             className="px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
             style={{
@@ -142,6 +143,7 @@ export default function TestimonialsSection() {
           >
             View More
           </button>
+          </a>
         </div>
       </div>
     </section>
