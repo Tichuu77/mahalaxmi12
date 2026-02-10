@@ -101,7 +101,44 @@ const amenities = [
         <path d="M32 22c8 6 10 10 10 16" stroke="white" stroke-width="3"/>
       </svg>
     `
-  }
+  },
+  {
+  title: "INDOOR GAME AREA",
+  svg: `
+    <svg viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="28" fill="#1f4f3d"/>
+      <rect x="18" y="20" width="28" height="24" stroke="white" stroke-width="3" fill="none"/>
+      <circle cx="26" cy="28" r="3" fill="white"/>
+      <circle cx="38" cy="36" r="3" fill="white"/>
+      <path d="M30 32h4" stroke="white" stroke-width="2"/>
+    </svg>
+  `
+},
+{
+  title: "BADMINTON COURT",
+  svg: `
+    <svg viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="28" fill="#1f4f3d"/>
+      <rect x="16" y="18" width="32" height="28" stroke="white" stroke-width="3" fill="none"/>
+      <path d="M32 18v28M16 32h32" stroke="white" stroke-width="2"/>
+      <path d="M40 22l6-6" stroke="white" stroke-width="2"/>
+      <circle cx="46" cy="16" r="2" fill="white"/>
+    </svg>
+  `
+},
+{
+  title: "SEWAGE LINE",
+  svg: `
+    <svg viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="28" fill="#1f4f3d"/>
+      <path d="M14 28h36" stroke="white" stroke-width="4"/>
+      <path d="M18 36h28" stroke="white" stroke-width="4"/>
+      <circle cx="22" cy="28" r="2" fill="white"/>
+      <circle cx="34" cy="36" r="2" fill="white"/>
+    </svg>
+  `
+}
+
 ];
 
 export default function LuxuryAmenities() {
