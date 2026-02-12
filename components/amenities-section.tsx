@@ -127,17 +127,27 @@ const amenities = [
   `
 },
 {
-  title: "SEWAGE LINE",
+  title: "VOLLEYBALL COURT",
   svg: `
     <svg viewBox="0 0 64 64">
       <circle cx="32" cy="32" r="28" fill="#1f4f3d"/>
-      <path d="M14 28h36" stroke="white" stroke-width="4"/>
-      <path d="M18 36h28" stroke="white" stroke-width="4"/>
-      <circle cx="22" cy="28" r="2" fill="white"/>
-      <circle cx="34" cy="36" r="2" fill="white"/>
+      
+      <!-- Net -->
+      <line x1="16" y1="32" x2="48" y2="32" stroke="white" stroke-width="3"/>
+      <line x1="20" y1="28" x2="20" y2="36" stroke="white" stroke-width="2"/>
+      <line x1="26" y1="28" x2="26" y2="36" stroke="white" stroke-width="2"/>
+      <line x1="32" y1="28" x2="32" y2="36" stroke="white" stroke-width="2"/>
+      <line x1="38" y1="28" x2="38" y2="36" stroke="white" stroke-width="2"/>
+      <line x1="44" y1="28" x2="44" y2="36" stroke="white" stroke-width="2"/>
+      
+      <!-- Ball -->
+      <circle cx="44" cy="20" r="5" stroke="white" stroke-width="2" fill="none"/>
+      <path d="M41 17c3 2 4 4 3 6" stroke="white" stroke-width="1.5" fill="none"/>
+      <path d="M47 17c-3 2-4 4-3 6" stroke="white" stroke-width="1.5" fill="none"/>
     </svg>
   `
 }
+
 
 ];
 
