@@ -16,28 +16,46 @@ export default function AboutSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+    setSubmitStatus("idle");
+
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "3582cb02-f89e-44e7-9e8a-8e4cd2ac7619", // Replace with your Web3Forms access key
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          city: formData.city,
+          message: formData.message,
+          subject: "New Property Inquiry - Mahalaxmi Nagar 45",
+        }),
       });
 
-      if (res.ok) {
+      const data = await res.json();
+
+      if (data.success) {
         setSubmitStatus("success");
-        setFormData({ name: "", phone: "", email: "", city: "", message: "" });
-        setTimeout(() => setSubmitStatus("idle"), 5000);
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          city: "",
+          message: "",
+        });
       } else {
         setSubmitStatus("error");
-        setTimeout(() => setSubmitStatus("idle"), 3000);
       }
     } catch (error) {
       console.error(error);
       setSubmitStatus("error");
-      setTimeout(() => setSubmitStatus("idle"), 3000);
     } finally {
       setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     }
   };
 
@@ -50,7 +68,6 @@ export default function AboutSection() {
 
   return (
     <>
-
       {/* About Section */}
       <section
         className="py-16 md:py-24"
@@ -62,7 +79,6 @@ export default function AboutSection() {
             {/* Left Content */}
             <div className="space-y-6 scroll-fade">
               <div>
-           
                 <h2
                   className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
                   style={{
@@ -71,7 +87,7 @@ export default function AboutSection() {
                     lineHeight: '1.2'
                   }}
                 >
-                 Where Elite Living Meets Exceptional Growth.
+                  Where Elite Living Meets Exceptional Growth.
                 </h2>
               </div>
 
@@ -83,7 +99,7 @@ export default function AboutSection() {
                     fontFamily: 'var(--font-sans)'
                   }}
                 >
-                  Experience the pinnacle of urban planning at Mahalaxmi Nagar 45. This isn’t just a layout; it’s a canvas for your dreams. Designed for those who seek exclusivity, our NIT/NMRDA sanctioned plots offer:
+                  Experience the pinnacle of urban planning at Mahalaxmi Nagar 45. This isn't just a layout; it's a canvas for your dreams. Designed for those who seek exclusivity, our NIT/NMRDA sanctioned plots offer:
                 </p>
                 <p
                   className="text-base md:text-lg"
@@ -92,27 +108,27 @@ export default function AboutSection() {
                     fontFamily: 'var(--font-sans)'
                   }}
                 >
-                 Premium Security: Gated community with elegant perimeter fencing.
+                  Premium Security: Gated community with elegant perimeter fencing.
                 </p>
 
-                  <p
+                <p
                   className="text-base md:text-lg"
                   style={{
                     color: 'var(--muted-foreground)',
                     fontFamily: 'var(--font-sans)'
                   }}
                 >
-               Green Living: Lush plantations and meticulously curated landscapes.
+                  Green Living: Lush plantations and meticulously curated landscapes.
                 </p>
 
-                  <p
+                <p
                   className="text-base md:text-lg"
                   style={{
                     color: 'var(--muted-foreground)',
                     fontFamily: 'var(--font-sans)'
                   }}
                 >
-              Peace of Mind: Full RL (Release Letter) compliance with up to 80% funding from top-tier nationalized banks.
+                  Peace of Mind: Full RL (Release Letter) compliance with up to 80% funding from top-tier nationalized banks.
                 </p>
               </div>
             </div>
@@ -122,7 +138,10 @@ export default function AboutSection() {
               className="rounded-lg shadow-2xl p-8 scroll-fade"
               style={{ backgroundColor: 'var(--primary)' }}
             >
-              <div className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <input type="hidden" name="from_name" value="Mahalaxmi Nagar 45 Website" />
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Name */}
                   <div>
@@ -142,7 +161,7 @@ export default function AboutSection() {
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded border-2 focus:outline-none transition-colors"
-                       placeholder="Enter your name"
+                      placeholder="Enter your name"
                       style={{
                         backgroundColor: 'var(--background)',
                         color: 'var(--tcolor)',
@@ -171,7 +190,7 @@ export default function AboutSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded border-2 focus:outline-none transition-colors"
-                       placeholder="+91 XXXXXXXXXX"
+                      placeholder="+91 XXXXXXXXXX"
                       style={{
                         backgroundColor: 'var(--background)',
                         color: 'var(--tcolor)',
@@ -263,7 +282,7 @@ export default function AboutSection() {
 
                 {/* Submit Button */}
                 <button
-                  onClick={handleSubmit}
+                  type="submit"
                   disabled={isSubmitting}
                   className="w-full hover:cursor-pointer md:w-auto px-8 py-3 rounded font-bold transition-all hover:scale-105 uppercase tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
@@ -281,7 +300,7 @@ export default function AboutSection() {
                 {submitStatus === 'error' && (
                   <p className="text-red-600 text-center font-semibold">Failed to submit. Please try again.</p>
                 )}
-              </div>
+              </form>
             </div>
           </div>
         </div>

@@ -37,31 +37,49 @@ export default function FAQContactSection() {
     setOpenIndex(openIndex === index ? -1 : index);
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      })
+    setSubmitStatus("idle");
 
-      if (res.ok) {
-        setSubmitStatus("success")
-        setFormData({ name: "", phone: "", email: "", city: "", message: "" })
-        setTimeout(() => setSubmitStatus("idle"), 5000)
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "3582cb02-f89e-44e7-9e8a-8e4cd2ac7619", // Replace with your Web3Forms access key
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          city: formData.city,
+          message: formData.message,
+          subject: "New Property Inquiry - Nagpur Luxury Plots",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          city: "",
+          message: "",
+        });
       } else {
-        setSubmitStatus("error")
-        setTimeout(() => setSubmitStatus("idle"), 3000)
+        setSubmitStatus("error");
       }
     } catch (error) {
-      console.error(error)
-      setSubmitStatus("error")
-      setTimeout(() => setSubmitStatus("idle"), 3000)
+      console.error(error);
+      setSubmitStatus("error");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     }
   };
 
@@ -147,7 +165,10 @@ export default function FAQContactSection() {
             className="rounded-lg p-8 shadow-lg"
             style={{ backgroundColor: 'var(--primary)' }}
           >
-            <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <input type="hidden" name="from_name" value="Nagpur Property Website" />
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+              
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label 
@@ -282,7 +303,7 @@ export default function FAQContactSection() {
               </div>
 
               <button
-                onClick={handleSubmit}
+                type="submit"
                 disabled={isSubmitting}
                 className="w-full px-6 py-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ 
@@ -301,7 +322,7 @@ export default function FAQContactSection() {
               {submitStatus === 'error' && (
                 <p className="text-red-600 text-center font-semibold">Failed to submit. Please try again.</p>
               )}
-            </div>
+            </form>
           </div>
         </div>
       </div>
