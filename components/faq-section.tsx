@@ -50,7 +50,7 @@ export default function FAQContactSection() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "3582cb02-f89e-44e7-9e8a-8e4cd2ac7619", // Replace with your Web3Forms access key
+          access_key: "857fa585-2a03-48fb-84c8-b0ebfac11be8", // Replace with your Web3Forms access key
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
