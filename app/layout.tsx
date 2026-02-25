@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
- 
+
 
 export const metadata: Metadata = {
   title: "Mahalaxmi Infra",
@@ -31,6 +31,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/Mahalaxmi Infra new Logo.png" />
+        <title>Mahalaxmi Infra</title>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17972228512"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17972228512');
+            `,
+          }}
+        ></script>
+      </head>
       <body >
         {children}
         <Analytics />
