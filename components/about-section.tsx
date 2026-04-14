@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
-import { Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Phone, X } from 'lucide-react';
 
 export default function AboutSection() {
   const [formData, setFormData] = useState({
@@ -12,6 +12,16 @@ export default function AboutSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('idle');
+  const [showThankYou, setShowThankYou] = useState(false);
+
+  useEffect(() => {
+    if (showThankYou) {
+      const timer = setTimeout(() => {
+        setShowThankYou(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showThankYou]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,6 +57,7 @@ export default function AboutSection() {
           city: "",
           message: "",
         });
+        setShowThankYou(true);
       } else {
         setSubmitStatus("error");
       }
@@ -291,12 +302,9 @@ export default function AboutSection() {
                     fontFamily: 'var(--font-heading)'
                   }}
                 >
-                  {isSubmitting ? 'Submitting...' : submitStatus === 'success' ? 'Submitted!' : 'Submit Inquiry'}
+                  {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
                 </button>
 
-                {submitStatus === 'success' && (
-                  <p className="text-green-600 text-center font-semibold">Thank you! We'll contact you soon.</p>
-                )}
                 {submitStatus === 'error' && (
                   <p className="text-red-600 text-center font-semibold">Failed to submit. Please try again.</p>
                 )}
@@ -305,6 +313,43 @@ export default function AboutSection() {
           </div>
         </div>
       </section>
+
+      {/* Thank You Modal */}
+      {showThankYou && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div 
+            className="rounded-lg p-12 shadow-lg text-center"
+            style={{ backgroundColor: 'var(--primary)' }}
+          >
+            <div className="space-y-4">
+              <div 
+                className="text-6xl font-bold"
+                style={{ color: 'var(--secondary)' }}
+              >
+                ✓
+              </div>
+              <h2 
+                className="text-4xl font-bold mb-2"
+                style={{ 
+                  color: 'var(--primary-foreground)',
+                  fontFamily: 'var(--font-heading)'
+                }}
+              >
+                Thank You!
+              </h2>
+              <p 
+                style={{ 
+                  color: 'var(--primary-foreground)',
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '1rem'
+                }}
+              >
+                Your inquiry has been submitted successfully. We'll contact you soon.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Floating Contact Buttons */}
       <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-3">

@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
-import { Plus, Minus, Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Plus, Minus, Send, X } from 'lucide-react';
 
 const faqs = [
   {
@@ -32,6 +32,16 @@ export default function FAQContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('idle');
+  const [showThankYou, setShowThankYou] = useState(false);
+
+  useEffect(() => {
+    if (showThankYou) {
+      const timer = setTimeout(() => {
+        setShowThankYou(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showThankYou]);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -71,6 +81,7 @@ export default function FAQContactSection() {
           city: "",
           message: "",
         });
+        setShowThankYou(true);
       } else {
         setSubmitStatus("error");
       }
@@ -312,13 +323,10 @@ export default function FAQContactSection() {
                   fontFamily: 'var(--font-heading)'
                 }}
               >
-                {isSubmitting ? 'Submitting...' : submitStatus === 'success' ? 'Submitted!' : 'Submit Inquiry'}
+                {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
                 <Send className="w-5 h-5" />
               </button>
               
-              {submitStatus === 'success' && (
-                <p className="text-green-600 text-center font-semibold">Thank you! We'll contact you soon.</p>
-              )}
               {submitStatus === 'error' && (
                 <p className="text-red-600 text-center font-semibold">Failed to submit. Please try again.</p>
               )}
@@ -326,6 +334,43 @@ export default function FAQContactSection() {
           </div>
         </div>
       </div>
+
+      {/* Thank You Modal */}
+      {showThankYou && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div 
+            className="rounded-lg p-12 shadow-lg text-center"
+            style={{ backgroundColor: 'var(--primary)' }}
+          >
+            <div className="space-y-4">
+              <div 
+                className="text-6xl font-bold"
+                style={{ color: 'var(--secondary)' }}
+              >
+                ✓
+              </div>
+              <h2 
+                className="text-4xl font-bold mb-2"
+                style={{ 
+                  color: 'var(--primary-foreground)',
+                  fontFamily: 'var(--font-heading)'
+                }}
+              >
+                Thank You!
+              </h2>
+              <p 
+                style={{ 
+                  color: 'var(--primary-foreground)',
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '1rem'
+                }}
+              >
+                Your inquiry has been submitted successfully. We'll contact you soon.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -1,4 +1,5 @@
 
+'use client';
 import HeroSection  from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
 import AmenitiesSection  from "@/components/amenities-section"
@@ -10,6 +11,7 @@ import FloatingCTA from "@/components/FloatingCTA"
 import FeaturesSwitcher from "@/components/FeaturesSwitcher"
 import VirtualTourHero from "@/components/vertualTour"
 import DocumentsSection from "@/components/document"
+import ContactPopup from "@/components/ContactPopup"
 
 
 export default function Home() {
@@ -17,6 +19,7 @@ export default function Home() {
   return (
     <main >
       <HeroSection />
+      <ContactPopup />
       <AboutSection />
       <FeaturesSwitcher />
       <AmenitiesSection />
