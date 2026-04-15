@@ -42,7 +42,7 @@ export default function AboutSection() {
           phone: formData.phone,
           city: formData.city,
           message: formData.message,
-          subject: "New Property Inquiry - Mahalaxmi Nagar 45",
+          subject: "New Property Inquiry - Mahalaxmi Plots",
         }),
       });
 
@@ -110,7 +110,7 @@ export default function AboutSection() {
                     fontFamily: 'var(--font-sans)'
                   }}
                 >
-                  Experience the pinnacle of urban planning at Mahalaxmi Nagar 45. This isn't just a layout; it's a canvas for your dreams. Designed for those who seek exclusivity, our NIT/NMRDA sanctioned plots offer:
+                  Experience the pinnacle of urban planning at Mahalaxmi Infra. This isn't just a layout; it's a canvas for your dreams. Designed for those who seek exclusivity, our NIT/NMRDA sanctioned plots offer:
                 </p>
                 <p
                   className="text-base md:text-lg"
@@ -150,7 +150,7 @@ export default function AboutSection() {
               style={{ backgroundColor: 'var(--primary)' }}
             >
               <form onSubmit={handleSubmit} className="space-y-6">
-                <input type="hidden" name="from_name" value="Mahalaxmi Nagar 45 Website" />
+                <input type="hidden" name="from_name" value="Mahalaxmi Plots Website" />
                 <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
 
                 <div className="grid md:grid-cols-2 gap-6">

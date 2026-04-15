@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "Samruddhi Mahamarg residential plots",
     "Residential plots in Sumthana Nagpur",
     "Plots near D-Mart Wardha Road",
-    "Mahalaxmi Nagar 45 Nagpur",
+    "Mahalaxmi Infra Nagpur",
     "Property near NCI Nagpur",
     "Plots near Samruddhi Mahamarg Interchange",
     "Budget plots on Wardha Road Nagpur"

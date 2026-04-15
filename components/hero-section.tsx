@@ -189,7 +189,7 @@ export default function HeroSection() {
       <section
         className="relative min-h-screen flex items-center overflow-hidden"
         style={{
-          backgroundImage: 'url("/gallery_6.jpg")',
+          backgroundImage: 'url("/herobg.jpeg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: isMobile ? 'scroll' : 'fixed',
@@ -221,8 +221,7 @@ export default function HeroSection() {
                 letterSpacing: '0.01em',
                 color: 'var(--primary-foreground)'
               }}
-            >
-              Mahalaxmi Nagar - 45
+            >    
             </h1>
 
             {/* Stats Row */}
