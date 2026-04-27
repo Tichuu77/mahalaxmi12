@@ -12,6 +12,7 @@ import FeaturesSwitcher from "@/components/FeaturesSwitcher"
 import VirtualTourHero from "@/components/vertualTour"
 import DocumentsSection from "@/components/document"
 import ContactPopup from "@/components/ContactPopup"
+import { ProjectsSection } from "@/components/projects-section";
 
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
       <DocumentsSection />
       <TestimonialsSection />
       <FAQSection />
+      <ProjectsSection/>
       <Footer />
       <FloatingCTA />
     </main>

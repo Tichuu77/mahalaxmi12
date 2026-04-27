@@ -206,6 +206,10 @@ export default function HeroSection() {
 
         {/* Content */}
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative z-10">
+          
+            <div className='text-right text-sm sm:text-base font-semibold mb-4 sm:mb-6 md:mb-8 text-white transition-all duration-700 delay-300 opacity-0 translate-y-10 sm:opacity-100 sm:translate-y-0 '>
+              <a style={{backgroundColor:'var(--secondary)'}} href='#projects' className='p-2 rounded'>Other Projects</a>
+            </div>
           <div className="max-w-3xl space-y-6 sm:space-y-8">
             {/* Top Badge */}
             
